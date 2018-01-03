@@ -32,5 +32,5 @@ This project is in the alpha stages.  If you would like to participate, please p
 
 # Want to learn more?
 
-Much more details can be found in ./docs/index.md
+Much more details can be found [here](https://github.com/willmitchell/scarsdale/blob/master/docs/index.md).
 

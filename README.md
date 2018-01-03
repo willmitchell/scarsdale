@@ -26,9 +26,9 @@ The Scarsdale library provides a way to model, validate, and present contracts. 
 - support contract rendering and visualization
 - support higher level analysis and modeling
 
-# Example
+# Example 1: Simple
 
-In the example below, we have a kid in a candy store.  This is obviously a real world scenario.  With Scarsdale, we can use the same notation for capturing the
+In the example below, we have a kid in a candy store.  This is obviously a real world scenario.
 
 ```
 contract:                            # Note 1: All contracts begin with a 'contract' node
@@ -45,11 +45,106 @@ contract:                            # Note 1: All contracts begin with a 'contr
                 - /what/food/candy
 ```
 
+# Example 2: Smart Contract for Third Party Identity Services
+
+With Scarsdale, we can use the same notation for capturing the highlights of a Smart Contract as well.  In the example below, a subscriber wants to purchase third party identity services from a seller.  Note the following:
+
+- who, what, where, and when are treated in the contract synopsis
+- the state is party to the contract, as they have real world identification requirements
+- the resulting identity could be used to provide a minimum-age assertion that might be required within the context of a purchase of alcohol (at least in the USA).
+
+```
+contract:
+  who:
+    subscriber:
+      roles:
+        - /who/roles/subscriber
+        - /who/roles/buyer
+      has:
+        - /what/money
+      wants:
+        - /what/services/identity
+
+    seller:
+      roles:
+        - /who/roles/seller
+        - /who/roles/identity/authenticator
+      wants:
+        - /what/money
+        - /what/legal/compliance
+      has:
+        - /what/internet/website
+        - /what/identity/types/clear
+        - /what/license/state/identity_services
+        - /what/services/identity
+
+    state:
+      roles:
+        - /what/authority/state
+
+      wants:
+        - /what/money
+        - /what/legal/compliance
+      has:
+        - /what/identity/types/clear
+        - /what/authority/state
+
+  what:
+    summary: /who/subscriber purchases a subscription for state-sanctioned identity services from /who/seller.
+
+    categories:
+      - /what/authority/state
+      - /what/services/identity
+
+  where:
+    jurisdiction: /where/jurisdictions/state
+
+    who:
+      subscriber:
+        - /where/places/types/addressable
+
+      seller:
+        - /where/places/types/addressable
+
+  when:
+    -
+      name: purchase
+      who:
+        -
+          name: subscriber
+          actions:
+            - /when/actions/choose
+            - /when/actions/checkout
+            - /when/actions/payment/pay
+        -
+          name: seller
+          actions:
+            - /when/actions/payment/accept
+
+    -
+      name: performance
+      who:
+        -
+          name: subscriber
+          actions:
+            - /when/actions/identity/respond
+            - /when/actions/identity/delegate
+        -
+          name: seller
+          actions:
+            - /when/actions/identity/handle
+            - /when/actions/identity/validate
+            - /when/actions/identity/minimize
+            - /when/actions/identity/prove
+            - /when/actions/identity/audit
+
+```
+
 # Status
 
-This project is in the alpha stages.  If you would like to participate, please ping will.mitchell@app3.com or submit a PR, etc.  Thanks.
+This project is in the alpha stage.  If you would like to participate, please ping will.mitchell@app3.com or submit a PR, etc.  Thanks.
 
 # Want to learn more?
 
-Much more details can be found [here](https://github.com/willmitchell/scarsdale/blob/master/docs/index.md).
+Documentation is a work in progress.  More details can be found [here](https://github.com/willmitchell/scarsdale/blob/master/docs/index.md).
 

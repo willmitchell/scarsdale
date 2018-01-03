@@ -27,6 +27,8 @@ module:
     - /who/roles/courier
     - /who/roles/provider
     - /who/roles/subscriber
+    - /who/roles/identity/authenticator
+    - /who/roles/identity/challenger
 
      #########################################
     - /what/money
@@ -42,7 +44,10 @@ module:
     - /what/assurance/has_identity
     - /what/internet/website
     - /what/certificate
-    - /what/products/identity
+    - /what/identity/assertions
+    - /what/identity/types/clear
+    - /what/identity/types/opaque
+    - /what/services/identity
     - /what/food/pizza
     - /what/food/candy
     - /what/drink/water
@@ -54,6 +59,11 @@ module:
     - /what/services/communication
     - /what/services/network
     - /what/services/cellphone
+    - /what/license/state/identity_services
+    - /what/authority
+    - /what/authority/state
+    - /what/authority/federal
+    - /what/legal/compliance
 
     #########################################
     # when are events and verbs

@@ -1,53 +1,20 @@
-# example smart Contract Synopsis language file
-
-meta:
-  author: will mitchell
-  email: will.mitchell@app3.com
-
+# example Smart Contract Synopsis Language file
 
 contract:
   who:
-    buyer:
+    subscriber:
       roles:
-        - /who/roles/buyer
         - /who/roles/subscriber
+        - /who/roles/buyer
       has:
         - /what/money
       wants:
-        - /what/products/identity
-
-#      skills:
-#        - /what/skills/prove
-
-      # TBD: behaviors and/or skills
-#        - /what/skills/create_subscription
-
-  #    behaviors:
-  #      - core:review
-  #      - core:prove
-  #    contexts:
-  #      - purchase:
-  #        behaviors:
-  #          - core:abortable
-  #      - prove:
-  #        behaviors:
-  #          - core:prove
-  #          - core:inspect
-  #          - core:reject
-  #          - core:pay
-  #          - core:create_subscription
-  #          - core:cancel_subscription
-  #      - use:
-  #        behaviors:
-  #          - core:prove
-  #          - core:inspect
-  #          - core:reject
-  #          - core:pay
+        - /what/services/identity
 
     seller:
       roles:
         - /who/roles/seller
-        - /who/roles/authenticator
+        - /who/roles/identity/authenticator
       wants:
         - /what/money
         - /what/legal/compliance
@@ -55,33 +22,22 @@ contract:
         - /what/internet/website
         - /what/identity/types/clear
         - /what/license/state/identity_services
-
-    third_party:
-      roles:
-        - /who/roles/identity/challenger
-      wants:
-        - /assertions/identity/*
-      has:
-        - /identity/clear
+        - /what/services/identity
 
     state:
       roles:
-        - /what/legal/authority
+        - /what/authority/state
 
       wants:
         - /what/money
         - /what/legal/compliance
       has:
-        - /what/identity/clear
+        - /what/identity/types/clear
         - /what/authority/state
 
-  #    contexts:
-  #      - validate/license
-
-
   what:
-    summary: /who/buyer purchases a subscription for state-sanctioned identity services from /who/seller.
-#
+    summary: /who/subscriber purchases a subscription for state-sanctioned identity services from /who/seller.
+
     categories:
       - /what/authority/state
       - /what/services/identity
@@ -90,7 +46,7 @@ contract:
     jurisdiction: /where/jurisdictions/state
 
     who:
-      buyer:
+      subscriber:
         - /where/places/types/addressable
 
       seller:
@@ -101,7 +57,7 @@ contract:
       name: purchase
       who:
         -
-          name: buyer
+          name: subscriber
           actions:
             - /when/actions/choose
             - /when/actions/checkout
@@ -115,7 +71,7 @@ contract:
       name: performance
       who:
         -
-          name: buyer
+          name: subscriber
           actions:
             - /when/actions/identity/respond
             - /when/actions/identity/delegate

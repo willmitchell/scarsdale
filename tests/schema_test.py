@@ -62,6 +62,10 @@ def test_candy():
     cs = ModuleSet(['core', 'candy'])
     cs.validate()
 
+def test_id_agency():
+    cs = ModuleSet(['core', 'id_agency'])
+    cs.validate()
+
 
 def test_pizza_module_resolution():
     cs = ModuleSet(['pizza'])

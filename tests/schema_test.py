@@ -58,6 +58,10 @@ def test_cellphone():
     cs = ModuleSet(['core', 'cellphone'])
     cs.validate()
 
+def test_candy():
+    cs = ModuleSet(['core', 'candy'])
+    cs.validate()
+
 
 def test_pizza_module_resolution():
     cs = ModuleSet(['pizza'])

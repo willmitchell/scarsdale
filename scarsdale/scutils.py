@@ -4,11 +4,9 @@ associated with SCDL and CRN.
 """
 import functools
 import os
-import itertools
 import re
 
 import jmespath
-import yaml
 from yaml import Loader, load
 
 _engine_root = os.getcwd()

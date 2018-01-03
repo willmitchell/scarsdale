@@ -1,0 +1,99 @@
+meta:
+  author: will mitchell
+  email: will.mitchell@app3.com
+  version: 0.1.0
+  hash: TBD
+
+module:
+  name: core
+  description: these are the core elements of SCDL.  This list will grow.
+  readonly: true
+  elements:
+    # people, orgs, groups, roles
+    - /who/names/equia # establish global equia name.  note account id & region unbound.
+    - /who/domains/equia.org  # global domain equia.org
+    - /who/groups/equia/core  # equia public group named core
+
+    - //who/groups/voting_members  # put groups/voting_members into the equia partition
+
+    # Declare a small set of roles for reuse by SC's.
+    - /who/roles/buyer
+    - /who/roles/seller
+    - /who/roles/witness
+    - /who/roles/state
+    - /who/roles/assurer
+    - /who/roles/insurer
+    - /who/roles/manufacturer
+    - /who/roles/courier
+    - /who/roles/provider
+    - /who/roles/subscriber
+
+     #########################################
+    - /what/money
+    - /what/money/usd
+    - /what/money/btc
+    - /what/money/eth
+    - /what/assets
+    - /what/assets/house
+    - /what/assets/stock
+    - /what/assets/bond
+    - /what/assurance
+    - /what/assurance/meets_minimum_age
+    - /what/assurance/has_identity
+    - /what/internet/website
+    - /what/certificate
+    - /what/products/identity
+    - /what/food/pizza
+    - /what/drink/water
+    - /what/drink/beer
+    - /what/transactions/purchase
+    - /what/transactions/return
+    - /what/transactions/abort
+    - /what/services/delivery
+    - /what/services/communication
+    - /what/services/network
+    - /what/services/cellphone
+
+    #########################################
+    # when are events and verbs
+    - /when/actions/inspect
+    - /when/actions/reject
+    - /when/actions/pay
+    - /when/actions/prove
+    - /when/actions/create_subscription
+    - /when/actions/cancel_subscription
+    - /when/now
+    - /when/today
+    - /when/before
+    - /when/after
+
+    #########################################
+    # wheres can be bound to an account or not
+    - /where/places/types/addressible
+    - /where/places/types/deliverable
+    - /where/places/types/home
+    - /where/places/types/work
+    - /where/places/types/office
+    - /where/places/types/manufacturing_facility
+    - /where/places/types/deliverable
+    - /where/places/types/addressable
+    - /where/global
+    - /where/regions/us
+    - /where/regions/cn
+
+    #########################################
+    - /why/wants/eat
+    - /why/wants/food
+    - /why/wants/money
+    - /why/wants/shelter
+    - /why/wants/earn
+    - /why/wants/communication
+    - /why/enforce/compliance
+    - /why/protect/privacy
+
+    #########################################
+    # Ground rules for the transaction
+    - /how/internet/commerce
+    - /how/resolvers/scoped
+    - /how/resolvers/absolute
+    - /how/resolvers/global

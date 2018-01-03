@@ -1,0 +1,130 @@
+# example smart Contract Synopsis language file
+
+meta:
+  author: will mitchell
+  email: will.mitchell@app3.com
+
+
+contract:
+  who:
+    buyer:
+      roles:
+        - /who/roles/buyer
+        - /who/roles/subscriber
+      has:
+        - /what/money
+      wants:
+        - /what/products/identity
+
+#      skills:
+#        - /what/skills/prove
+
+      # TBD: behaviors and/or skills
+#        - /what/skills/create_subscription
+
+  #    behaviors:
+  #      - core:review
+  #      - core:prove
+  #    contexts:
+  #      - purchase:
+  #        behaviors:
+  #          - core:abortable
+  #      - prove:
+  #        behaviors:
+  #          - core:prove
+  #          - core:inspect
+  #          - core:reject
+  #          - core:pay
+  #          - core:create_subscription
+  #          - core:cancel_subscription
+  #      - use:
+  #        behaviors:
+  #          - core:prove
+  #          - core:inspect
+  #          - core:reject
+  #          - core:pay
+
+    seller:
+      roles:
+        - /who/roles/seller
+        - /who/roles/authenticator
+      wants:
+        - /what/money
+        - /what/legal/compliance
+      has:
+        - /what/internet/website
+        - /what/identity/types/clear
+        - /what/license/state/identity_services
+
+    third_party:
+      roles:
+        - /who/roles/identity/challenger
+      wants:
+        - /assertions/identity/*
+      has:
+        - /identity/clear
+
+    state:
+      roles:
+        - /what/legal/authority
+
+      wants:
+        - /what/money
+        - /what/legal/compliance
+      has:
+        - /what/identity/clear
+        - /what/authority/state
+
+  #    contexts:
+  #      - validate/license
+
+
+  what:
+    summary: /who/buyer purchases a subscription for state-sanctioned identity services from /who/seller.
+#
+    categories:
+      - /what/authority/state
+      - /what/services/identity
+
+  where:
+    jurisdiction: /where/jurisdictions/state
+
+    who:
+      buyer:
+        - /where/places/types/addressable
+
+      seller:
+        - /where/places/types/addressable
+
+  when:
+    -
+      name: purchase
+      who:
+        -
+          name: buyer
+          actions:
+            - /when/actions/choose
+            - /when/actions/checkout
+            - /when/actions/payment/pay
+        -
+          name: seller
+          actions:
+            - /when/actions/payment/accept
+
+    -
+      name: performance
+      who:
+        -
+          name: buyer
+          actions:
+            - /when/actions/identity/respond
+            - /when/actions/identity/delegate
+        -
+          name: seller
+          actions:
+            - /when/actions/identity/handle
+            - /when/actions/identity/validate
+            - /when/actions/identity/minimize
+            - /when/actions/identity/prove
+            - /when/actions/identity/audit
+

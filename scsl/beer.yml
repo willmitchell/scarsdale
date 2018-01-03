@@ -1,0 +1,158 @@
+# example smart Contract Synopsis language file
+# demonstrates the involvement of a trust provider and assertions provider
+
+contract:
+  who:
+    buyer:
+      wants:
+        - /what/drinks/beer
+
+      has:
+        - /what/money
+        - /what/identity/opaque
+        - /what/assertions/proof/meets_minimum_alcohol_purchase_age
+
+    seller:
+
+      wants:
+        - /what/money
+        - /what/legal/compliance
+
+      has:
+        - /what/identity/clear
+        - /what/license/alcohol_sales
+        - /what/website
+        - /what/drinks/beer
+
+    asserter:
+      wants:
+        - /what/money
+        - /what/legal/compliance
+
+      has:
+        - /what/identity/clear
+        - /what/license/irl/identity_agency
+
+    state:
+      wants:
+        - /what/money
+        - /what/legal/compliance
+        - /what/taxes
+      has:
+        - /what/identity/clear
+        - /what/authority/state
+
+  what:
+    summary: /who/buyer purchases a custom made beer from /who/seller.
+
+    categories:
+      - /what/products/drinks/beer
+      - /what/services/delivery
+
+  where:
+    jurisdiction: /where/jurisdiction/state
+    who:
+      buyer:
+        - /where/place/types/addressable
+        - /where/place/types/deliverable
+
+      seller:
+        - /where/place/types/addressable
+
+#  when:
+#    aws_states:
+#      Comment: An example of the Amazon States Language using a choice state.
+#      StartAt: FirstState
+#      States:
+#        FirstState:
+#          Type: Task
+#          Resource: arn:aws:lambda:us-east-1:123456789012:function:FUNCTION_NAME
+#          Next: ChoiceState
+#        ChoiceState:
+#          Type: Choice
+#          Choices:
+#          - Variable: "$.foo"
+#            NumericEquals: 1
+#            Next: FirstMatchState
+#          - Variable: "$.foo"
+#            NumericEquals: 2
+#            Next: SecondMatchState
+#          Default: DefaultState
+#        FirstMatchState:
+#          Type: Task
+#          Resource: arn:aws:lambda:us-east-1:123456789012:function:OnFirstMatch
+#          Next: NextState
+#        SecondMatchState:
+#          Type: Task
+#          Resource: arn:aws:lambda:us-east-1:123456789012:function:OnSecondMatch
+#          Next: NextState
+#        DefaultState:
+#          Type: Fail
+#          Error: DefaultStateError
+#          Cause: No Matches!
+#        NextState:
+#          Type: Task
+#          Resource: arn:aws:lambda:us-east-1:123456789012:function:FUNCTION_NAME
+#          End: true
+
+
+#  when:
+#
+#    - shop:
+#      who: buyer
+#      context: purchase
+#      behaviors:
+#        - core:cancellable
+#      events:
+#        cancel:
+#          next: abort
+#        proceed:
+#          next: checkout
+#
+#    - checkout:
+#      who: buyer
+#      context: purchase
+#      events:
+#        challenge:
+#          behaviors:
+#            - core:challenge:prove_minimum_age
+#            - core:prove:minimum_age
+#        proceed:
+#          next: ship
+#
+#    - ship:
+#      who: seller
+#      context: deliver
+#      events:
+#        proceed:
+#          next: deliver
+#
+#    - deliver:
+#      who: seller
+#      context: deliver
+#      events:
+#        proceed:
+#          next: accept
+#
+#    - accept:
+#      who: buyer
+#      context: deliver
+#      behaviors:
+#        - core:accept
+#        - core:reject
+#        - core:prove:identity/opaque
+#      events:
+#        proceed:
+#          next: pay
+#
+#    - pay:
+#      who: buyer
+#      context: deliver
+#      behaviors:
+#        - core:pay/id_constrained
+#
+#    - abort:
+#      behaviors:
+#        - core:abort
+
+

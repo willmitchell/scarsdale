@@ -1,0 +1,83 @@
+# example smart Contract Synopsis language file
+
+contract:
+  who:
+    buyer:
+      roles:
+        - /who/roles/buyer
+
+      wants:
+        - /what/food/pizza
+        - /what/services/delivery
+
+      has:
+        - /what/money
+
+    seller:
+      roles:
+        - /who/roles/seller
+        - /who/roles/manufacturer
+      wants:
+        - /what/money
+      has:
+        - /what/internet/website
+        - /what/food/pizza
+        - /what/services/delivery
+  what:
+    summary: "/who/buyer purchases a custom made pizza from /who/seller."
+
+    categories:
+      - /what/food/pizza
+      - /what/services/delivery
+
+  where:
+    jurisdiction: /where/jurisdiction/state
+
+    who:
+      buyer:
+        - /where/places/types/deliverable
+      seller:
+        - /where/places/types/addressable
+
+  # when could be renamed stages or steps
+  when:
+    -
+      name: purchase
+      who:
+        -
+          name: buyer
+          actions:
+            - /when/actions/checkout
+            - /when/actions/pay
+
+    -
+      name: manufacture
+      who:
+        -
+          name: seller
+          actions:
+            - /when/actions/manufacture
+            - /when/actions/ship
+
+    -
+      name: deliver
+      who:
+        -
+          name: seller
+          actions:
+            - /when/actions/deliver
+    -
+      name: accept
+      who:
+        -
+          name: buyer
+          actions:
+            - /when/actions/accept
+            - /when/actions/reject
+
+  why:
+    - /why/wants/food
+    - /why/wants/money
+
+  how:
+    - /how/internet/commerce

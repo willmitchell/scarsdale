@@ -1,0 +1,103 @@
+# example smart Contract Synopsis language file
+
+meta:
+  author: Will Mitchell
+  email: will.mitchell@app3.com
+
+contract:
+  who:
+    buyer:
+      roles:
+        - /who/roles/buyer
+        - /who/roles/subscriber
+
+      wants:
+        - /what/services/cellphone
+
+      has:
+        - /what/money
+
+    seller:
+      roles:
+        - /who/roles/seller
+        - /who/roles/provider
+      wants:
+        - /what/money
+        - /what/data
+      has:
+        - /what/services/network
+
+    data_broker:
+      has:
+        - /what/ads/media
+
+      wants:
+        - /what/ads/impressions
+        - /what/ads/clickthroughs
+
+    advertisers:
+      roles:
+        - /who/roles/advertiser
+      wants:
+        - /what/money
+        - /what/sales
+      has:
+        - /what/services/network
+  what:
+    summary: "/who/buyer purchases cell phone service from /who/seller."
+
+    categories:
+      - /what/services/cellphone
+
+  where:
+    jurisdiction: /where/jurisdiction/state
+
+    who:
+      buyer:
+        - /where/places/types/deliverable
+      seller:
+        - /where/places/types/addressable
+
+  # when could be renamed stages or steps
+  when:
+    -
+      name: purchase
+      who:
+        -
+          name: buyer
+          actions:
+            - /when/actions/checkout
+            - /when/actions/pay
+
+    -
+      name: fulfill
+      who:
+        -
+          name: seller
+          actions:
+            - /when/actions/locate
+            - /when/actions/activate
+            - /when/actions/package
+            - /when/actions/ship
+    -
+      name: deliver
+      who:
+        -
+          name: seller
+          actions:
+            - /when/actions/deliver
+    -
+      name: accept
+      who:
+        -
+          name: buyer
+          actions:
+            - /when/actions/accept
+            - /when/actions/reject
+
+  why:
+    - /why/wants/communication
+    - /why/wants/money
+
+  how:
+    - /how/internet/commerce

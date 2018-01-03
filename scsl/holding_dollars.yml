@@ -1,0 +1,50 @@
+# example smart Contract Synopsis language file
+
+meta:
+  author: Will Mitchell
+  email: will.mitchell@app3.com
+
+contract:
+  who:
+    saver:
+      roles:
+        - /who/roles/saver
+      wants:
+        - /what/value/preservation
+      has:
+        - /what/value/USD
+    ustreasury:
+      roles:
+        - /who/roles/currency/issuer
+      wants:
+        - /what/confidence/USD
+      has:
+        - /what/authority/currency
+    usgovernment:
+      roles:
+        - /who/roles/sovereign
+      wants:
+        - /what/money/taxes
+        - /who/roles/economic/control
+      has:
+        - /what/monopoly/force
+
+  what:
+    summary: "saver wants savings in USD to retain their value"
+    categories:
+      - /what/money/choices
+      - /what/power
+      - /what/government/operations
+
+  where:
+    jurisdiction: /where/jurisdiction/federal
+    who:
+      saver:
+        - /where/places/types/any
+      ustreasury:
+        - /where/places/cities/WashingtonDC
+      usgovernment:
+        - /where/places/cities/WashingtonDC
+
+  why:
+    - /why/wants/money

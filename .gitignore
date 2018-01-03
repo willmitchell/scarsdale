@@ -1,0 +1,8 @@
+.cache
+.idea
+venv
+.venv
+*.zip
+.envrc
+.vscode
+

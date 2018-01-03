@@ -26,6 +26,25 @@ The Scarsdale library provides a way to model, validate, and present contracts. 
 - support contract rendering and visualization
 - support higher level analysis and modeling
 
+# Example
+
+In the example below, we have a kid in a candy store.  This is obviously a real world scenario.  With Scarsdale, we can use the same notation for capturing the
+
+```
+contract:                            # Note 1: All contracts begin with a 'contract' node
+    who:                             # Note 2: 'who' is an optional (but important) section within any contract
+        kid:                         # Note 3: parties to a contract have unique names within the contract
+            wants:                   # Note 4: parties to a contract generally want something
+                - /what/food/candy   # Note 5: /what/food/candy can be used from other contracts like a URL
+            has:
+                - /what/money
+        candystore:
+            wants:
+                - /what/money
+            has:
+                - /what/food/candy
+```
+
 # Status
 
 This project is in the alpha stages.  If you would like to participate, please ping will.mitchell@app3.com or submit a PR, etc.  Thanks.

@@ -1,5 +1,7 @@
 # Scarsdale: A Smart Contract Synopsis Language
 
+![Build Status](https://travis-ci.org/willmitchell/scarsdale.svg?branch=master "Build Status")
+
 # Synopsis
 
 - who: Will Mitchell

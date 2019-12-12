@@ -33,11 +33,11 @@ The Scarsdale library provides a way to model, validate, and present contracts. 
 In the example below, we have a kid in a candy store.  This is obviously a real world scenario.
 
 ```
-contract:                            # Note 1: All contracts begin with a 'contract' node
-    who:                             # Note 2: 'who' is an optional (but important) section within any contract
-        kid:                         # Note 3: parties to a contract have unique names within the contract
-            wants:                   # Note 4: parties to a contract generally want something
-                - /what/food/candy   # Note 5: /what/food/candy can be used from other contracts like a URL
+contract:
+    who:
+        kid:
+            wants:
+                - /what/food/candy
             has:
                 - /what/money
         candystore:

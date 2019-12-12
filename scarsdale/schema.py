@@ -16,7 +16,6 @@ STS = {'schema': TS}
 
 TLS = {**TL, **STS}
 
-# RX_ANY_CRN = r'/+[\w\-\_]+/[/\w\-\_]*|crn:\w+:\w*:[]\w\-\_]+:\d*:[\-\_/\:\w]+|\.[\-\_/\:\w]+'
 RX_ANY_CRN = r'/+[\w\-\_]+/[/\w\-\_]*|crn:\w+:\w*:[\w\-\_]+:\d*:[\-\_/\:\w]+'
 TCRN = {
     'schema': {
@@ -86,15 +85,7 @@ def gen_core_validator():
         },
     }
 
-    # TWHO = lods({
-    #     'name': TS,
-    #     'roles': TLCRN,
-    #     'wants': TLCRN,
-    #     'has': TLCRN,
-    #     'behaviors': TLCRN
-    # })
-
-    TWHO2 = dods({
+    TWHO = dods({
         'name': TS,
         'roles': TLCRN,
         'wants': TLCRN,
@@ -110,18 +101,7 @@ def gen_core_validator():
         }
     }
 
-    # TWHERE = {
-    #     **TD,
-    #     'schema': {
-    #         'jurisdiction': TS,
-    #         'who': lods({
-    #             'name': TS,
-    #             'location': TCRN
-    #         })
-    #     }
-    # }
-
-    TWHERE2 = {
+    TWHERE = {
         **TD,
         'schema': {
             'jurisdiction': TS,
@@ -145,13 +125,9 @@ def gen_core_validator():
         'schema': {
             'name': TS,
             'description': TS,
-            'who': TWHO2,
-            # 'who': TWHO,
-            # 'who2': TWHO2,
+            'who': TWHO,
             'what': TWHAT,
-            'where': TWHERE2,
-            # 'where': TWHERE,
-            # 'where2': TWHERE2,
+            'where': TWHERE,
             'when': TWHEN,
             'why': TLCRN,
             'how': TLCRN,

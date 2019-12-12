@@ -31,11 +31,6 @@ def test_pizza():
     print(m.node_query('contract.who.seller'))
 
 
-def test_id_agency():
-    dd = runDict('id_agency')
-    print(dd)
-
-
 def test_beer():
     dd = runDict('beer')
     print(dd)
@@ -54,13 +49,16 @@ def test_pizza_validation():
     assert cs.resolve('/who/names/equia')
     cs.validate()
 
+
 def test_cellphone():
     cs = ModuleSet(['core', 'cellphone'])
     cs.validate()
 
+
 def test_candy():
     cs = ModuleSet(['core', 'candy'])
     cs.validate()
+
 
 def test_id_agency():
     cs = ModuleSet(['core', 'id_agency'])
@@ -88,7 +86,7 @@ def test_pizza_module_resolution_jmespath():
     print(when_names)
     assert when_names
 
-    who_lcrns = jmespath.search('contract.who.*.[wants, has, roles][]',p.full_expanded_map)
+    who_lcrns = jmespath.search('contract.who.*.[wants, has, roles][]', p.full_expanded_map)
     print(who_lcrns)
     assert who_lcrns
 

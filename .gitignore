@@ -1,3 +1,5 @@
+.DS_*
+**/__pycache__
 .cache
 .idea
 venv
